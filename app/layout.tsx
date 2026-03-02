@@ -29,6 +29,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body
         className={cn(geistSans.className, geistMono.className, 'antialiased')}
+        data-theme="light"
       >
         {children}
       </body>
