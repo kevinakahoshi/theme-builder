@@ -1,16 +1,16 @@
-import { headers as getHeaders } from 'next/headers';
-import { Label } from '../ui/label';
+import { getPreferredColorScheme } from '@/lib/utils';
+// import { Label } from '../ui/label';
 import { Switch } from '../ui/switch';
 
-export const ThemeToggle = async () => {
-  const headers = await getHeaders();
-  const prefersDarkMode = headers.get('sec-ch-prefers-color-scheme') === 'dark';
+export const ThemeToggle = async (props: React.ComponentProps<'div'>) => {
+  const preferredColorScheme = await getPreferredColorScheme();
+  const prefersDarkMode = preferredColorScheme === 'dark';
   const id = 'theme-toggle';
 
   return (
-    <div>
+    <div {...props}>
       <Switch id={id} defaultChecked={prefersDarkMode} />
-      <Label htmlFor={id}>Dark Mode</Label>
+      {/* <Label htmlFor={id}>Dark Mode</Label> */}
     </div>
   );
 };

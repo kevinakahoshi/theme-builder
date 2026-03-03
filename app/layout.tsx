@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { Body } from '@/components/Body';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Inter } from 'next/font/google';
 import './globals.css';
@@ -27,12 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body
-        className={cn(geistSans.className, geistMono.className, 'antialiased')}
-        data-theme="light"
-      >
-        {children}
-      </body>
+      <Body>{children}</Body>
     </html>
   );
 }
