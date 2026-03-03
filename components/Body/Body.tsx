@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { getPreferredColorScheme } from '@/lib/utils/getPreferredColorScheme';
 import { Geist, Geist_Mono } from 'next/font/google';
 
 const geistSans = Geist({
@@ -11,11 +12,17 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const Body = ({ children }: React.ComponentProps<'body'>) => {
+export const Body = async ({ children }: React.ComponentProps<'body'>) => {
+  const preferredColorScheme = await getPreferredColorScheme();
+
   return (
     <body
-      className={cn(geistSans.className, geistMono.className, 'antialiased')}
-      data-theme="light"
+      className={cn(
+        geistSans.className,
+        geistMono.className,
+        'antialiased p-4 sm:p-8',
+      )}
+      data-theme={preferredColorScheme}
     >
       {children}
     </body>
