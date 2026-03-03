@@ -1,4 +1,4 @@
-import { getPreferredColorScheme } from '@/lib/utils/getPreferredColorScheme';
+import { getPreferredColorScheme } from '@/lib/utils';
 // import { Label } from '../ui/label';
 import { Switch } from '../ui/switch';
 

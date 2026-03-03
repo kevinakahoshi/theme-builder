@@ -1,5 +1,4 @@
-import { cn } from '@/lib/utils';
-import { getPreferredColorScheme } from '@/lib/utils/getPreferredColorScheme';
+import { cn, getPreferredColorScheme } from '@/lib/utils';
 import { Geist, Geist_Mono } from 'next/font/google';
 
 const geistSans = Geist({
