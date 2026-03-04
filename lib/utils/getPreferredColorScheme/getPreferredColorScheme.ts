@@ -1,3 +1,5 @@
+'use server';
+
 import { headers as getHeaders } from 'next/headers';
 
 export const getPreferredColorScheme = async () => {
