@@ -8,7 +8,10 @@ export default function Page() {
       <div className="p-4 sm:p-6 md:p-8 rounded-md bg-muted">
         <ThemeControlForm />
       </div>
-      <div className="p-4 rounded-md border border-muted">Display</div>
+      <div className="rounded-md border border-muted grid grid-rows-2 overflow-hidden">
+        <div className="p-4 bg-white text-accent">Light</div>
+        <div className="p-4">Dark</div>
+      </div>
     </section>
   );
 }
