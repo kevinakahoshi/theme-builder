@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { Slider } from '../ui/slider';
 
 export const ThemeControlForm = () => {
-  const [saturation, setSaturation] = useState(100);
   const [hue, setHue] = useState(180);
+  const [saturation, setSaturation] = useState(100);
+  const [lightness, setLightness] = useState(100);
 
   return (
     <div className="grid gap-4">
