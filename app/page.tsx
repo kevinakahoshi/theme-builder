@@ -1,3 +1,5 @@
+import { AccentColorChip } from '@/components/AccentColorChip';
+import { NeutralShades } from '@/components/NeutralShades';
 import { ThemeControlForm } from '@/components/ThemeControlForm';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
@@ -9,8 +11,28 @@ export default function Page() {
         <ThemeControlForm />
       </div>
       <div className="rounded-md border border-muted grid grid-rows-2 overflow-hidden">
-        <div className="p-4 bg-white text-accent">Light</div>
-        <div className="p-4">Dark</div>
+        <div className="p-4 bg-white text-accent">
+          <p>Light</p>
+          <div className="grid gap-1">
+            <div className="flex gap-1">
+              <NeutralShades section="light" />
+            </div>
+            <div>
+              <AccentColorChip />
+            </div>
+          </div>
+        </div>
+        <div className="p-4">
+          <p>Dark</p>
+          <div className="grid gap-1">
+            <div className="flex gap-1">
+              <NeutralShades section="light" />
+            </div>
+            <div>
+              <AccentColorChip />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
