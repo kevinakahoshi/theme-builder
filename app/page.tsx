@@ -23,12 +23,10 @@ export default function Page() {
       </div>
       <div className="rounded-md border border-muted grid grid-rows-2 overflow-hidden">
         <div className="p-4 bg-white text-accent">
-          <p>Light</p>
-          <DisplayCard />
+          <DisplayCard mode="light" />
         </div>
         <div className="p-4">
-          <p>Dark</p>
-          <DisplayCard />
+          <DisplayCard mode="dark" />
         </div>
       </div>
     </section>
