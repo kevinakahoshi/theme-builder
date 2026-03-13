@@ -19,12 +19,15 @@ type DisplayCardProps = {
   mode: Mode;
 };
 
-const getLightModeClasses = () => [
-  'bg-[hsl(0 0% 10%)]',
-  'text-[hsl(0 0% 95%)]',
-];
+const getLightModeClasses = () => ({
+  backgroundColor: 'hsl(0 0% 95%)',
+  color: 'hsl(0 0% 5%)',
+});
 
-const getDarkModeClasses = () => ['text-[hsl(0 0% 5%)]'];
+const getDarkModeClasses = () => ({
+  backgroundColor: 'hsl(0 0% 5%)',
+  color: 'hsl(0 0% 95%)',
+});
 
 const getModeClasses = (mode: Mode) =>
   mode === 'light' ? getLightModeClasses() : getDarkModeClasses();
@@ -33,7 +36,7 @@ export const DisplayCard = ({ mode }: DisplayCardProps) => {
   const { hue, saturation, lightness } = useAtomValue(hslAtom);
 
   return (
-    <Card className={cn(mode, ...getModeClasses(mode))}>
+    <Card className={cn(mode)} style={getModeClasses(mode)}>
       <CardHeader>
         <CardTitle className={cn('text-xl font-bold')}>
           The Story of the Fox
