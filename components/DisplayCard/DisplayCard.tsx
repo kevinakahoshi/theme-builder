@@ -19,14 +19,18 @@ type DisplayCardProps = {
   mode: Mode;
 };
 
+const lightnessThreshold = 75;
+
 const getLightModeClasses = () => ({
-  backgroundColor: 'hsl(0 0% 95%)',
-  color: 'hsl(0 0% 5%)',
+  backgroundColor: 'hsl(0 0% 90%)',
+  color: 'hsl(0 0% 10%)',
+  colorSecondary: 'hsl(0 0% 30%)',
 });
 
 const getDarkModeClasses = () => ({
-  backgroundColor: 'hsl(0 0% 5%)',
-  color: 'hsl(0 0% 95%)',
+  backgroundColor: 'hsl(0 0% 10%)',
+  color: 'hsl(0 0% 90%)',
+  colorSecondary: 'hsl(0 0% 70%)',
 });
 
 const getModeClasses = (mode: Mode) =>
@@ -34,22 +38,29 @@ const getModeClasses = (mode: Mode) =>
 
 export const DisplayCard = ({ mode }: DisplayCardProps) => {
   const { hue, saturation, lightness } = useAtomValue(hslAtom);
+  const { backgroundColor, color, colorSecondary } = getModeClasses(mode);
 
   return (
-    <Card className={cn(mode)} style={getModeClasses(mode)}>
+    <Card className={cn(mode)} style={{ backgroundColor }}>
       <CardHeader>
-        <CardTitle className={cn('text-xl font-bold')}>
+        <CardTitle className={cn('text-xl font-bold')} style={{ color }}>
           The Story of the Fox
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <CardDescription>
+        <CardDescription style={{ color: colorSecondary }}>
           The quick brown fox jumps over the lazy dog.
         </CardDescription>
       </CardContent>
       <CardFooter>
         <Button
-          style={{ backgroundColor: `hsl(${hue} ${saturation}% ${lightness})` }}
+          style={{
+            backgroundColor: `hsl(${hue} ${saturation}% ${lightness})`,
+            color:
+              lightness < lightnessThreshold
+                ? getDarkModeClasses().color
+                : getLightModeClasses().color,
+          }}
         >
           Learn More
         </Button>
